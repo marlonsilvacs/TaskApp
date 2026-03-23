@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.taskapp.ui.theme.*
 
-// ─── Screen ───────────────────────────────────────────────────────────────────
+// ─── tela
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,7 +31,7 @@ fun TaskDetailScreen(
     onBack: () -> Unit = {},
     onEdit: () -> Unit = {}
 ) {
-    // Fake task data selected by id
+    // tarefa falsa selecionar por id
     val task = fakeTasks.find { it.id == taskId } ?: fakeTasks.first()
 
     var isCompleted by remember { mutableStateOf(task.isCompleted) }
@@ -75,7 +75,7 @@ fun TaskDetailScreen(
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
         ) {
-            // ── Colored header ───────────────────────────────────────────────
+            // ── cores do cabecalho
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -84,7 +84,7 @@ fun TaskDetailScreen(
                     .padding(bottom = 32.dp, top = 4.dp)
             ) {
                 Column {
-                    // Category badge
+                    // exibição categoria 
                     Surface(
                         shape = RoundedCornerShape(50),
                         color = Violet500.copy(alpha = 0.25f)
@@ -116,7 +116,7 @@ fun TaskDetailScreen(
 
                     Spacer(Modifier.height(20.dp))
 
-                    // Meta row
+                    // meta
                     Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                         MetaBadge(Icons.Default.Schedule,  task.dueTime.ifEmpty { "Sem hora" })
                         MetaBadge(Icons.Default.FiberManualRecord, task.priority.label, task.priority.color)
@@ -126,7 +126,7 @@ fun TaskDetailScreen(
                 }
             }
 
-            // ── Body card ────────────────────────────────────────────────────
+            // ── corpo da tela
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -136,7 +136,7 @@ fun TaskDetailScreen(
                 verticalArrangement = Arrangement.spacedBy(28.dp)
             ) {
 
-                // ── Status toggle ─────────────────────────────────────────────
+                // ── Status da tarefa
                 Surface(
                     shape = RoundedCornerShape(16.dp),
                     color = if (isCompleted) Mint400.copy(alpha = 0.1f)
@@ -185,7 +185,7 @@ fun TaskDetailScreen(
                     }
                 }
 
-                // ── Subtasks ───────────────────────────────────────────────────
+                // ── subtarefas
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Row(
                         Modifier.fillMaxWidth(),
@@ -231,7 +231,7 @@ fun TaskDetailScreen(
                     }
                 }
 
-                // ── Info grid ─────────────────────────────────────────────────
+                // ── informações
                 Text("Detalhes", style = MaterialTheme.typography.titleMedium)
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     DetailRow(Icons.Default.CalendarToday, "Data", "Hoje, ${task.dueTime}")
@@ -240,7 +240,7 @@ fun TaskDetailScreen(
                     DetailRow(Icons.Default.FiberManualRecord, "Prioridade", task.priority.label)
                 }
 
-                // ── Delete ────────────────────────────────────────────────────
+                // ── deletar
                 OutlinedButton(
                     onClick = {},
                     modifier = Modifier
