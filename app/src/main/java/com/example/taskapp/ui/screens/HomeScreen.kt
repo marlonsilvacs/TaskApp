@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.taskapp.ui.theme.*
 
-// ─── Dados fake ──────────────────────────────────────────────────────────────
+// ─── Dados exemplos
 
 data class Task(
     val id: Int,
@@ -56,7 +56,7 @@ val fakeTasks = listOf(
 
 val categories = listOf("Todas", "Trabalho", "Pessoal", "Saúde", "Estudo")
 
-// ─── Screen ───────────────────────────────────────────────────────────────────
+// ─── Tela 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -94,7 +94,7 @@ fun HomeScreen(
                 .padding(innerPadding),
             contentPadding = PaddingValues(bottom = 88.dp)
         ) {
-            // ── Header ──────────────────────────────────────────────────────
+            // ──  Cabecalho
             item {
                 Box(
                     modifier = Modifier
@@ -136,7 +136,7 @@ fun HomeScreen(
 
                         Spacer(Modifier.height(24.dp))
 
-                        // Progress card
+                        // Telinha de progresso
                         Surface(
                             shape  = RoundedCornerShape(16.dp),
                             color  = Indigo600.copy(alpha = 0.6f),
@@ -174,7 +174,7 @@ fun HomeScreen(
                 }
             }
 
-            // ── Category Filter ──────────────────────────────────────────────
+            // ── Filtro de categoria
             item {
                 LazyRow(
                     contentPadding = PaddingValues(horizontal = 20.dp, vertical = 16.dp),
@@ -198,7 +198,7 @@ fun HomeScreen(
                 }
             }
 
-            // ── Section label ────────────────────────────────────────────────
+            // ── pendencias
             item {
                 Text(
                     "Pendentes · ${filtered.count { !it.isCompleted }}",
@@ -208,7 +208,7 @@ fun HomeScreen(
                 )
             }
 
-            // ── Task items ───────────────────────────────────────────────────
+            // ── Itens de tarefas
             items(filtered) { task ->
                 TaskItem(
                     task     = task,
@@ -219,7 +219,7 @@ fun HomeScreen(
     }
 }
 
-// ─── TaskItem ─────────────────────────────────────────────────────────────────
+// ─── item de tarefas
 
 @Composable
 fun TaskItem(
@@ -247,7 +247,7 @@ fun TaskItem(
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Check circle
+            // Circulo verificado
             Icon(
                 imageVector = if (task.isCompleted) Icons.Outlined.CheckCircle
                               else Icons.Outlined.RadioButtonUnchecked,
@@ -258,7 +258,7 @@ fun TaskItem(
 
             Spacer(Modifier.width(14.dp))
 
-            // Content
+            // Conteúdo
             Column(Modifier.weight(1f)) {
                 Text(
                     text = task.title,
@@ -290,7 +290,7 @@ fun TaskItem(
             Spacer(Modifier.width(12.dp))
 
             Column(horizontalAlignment = Alignment.End) {
-                // Priority dot
+                // ponto de prioridade
                 Box(
                     Modifier
                         .size(10.dp)
@@ -319,8 +319,7 @@ fun TaskItem(
     }
 }
 
-// ─── Preview ──────────────────────────────────────────────────────────────────
-
+// ─── Preview 
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
 fun HomeScreenPreview() {
