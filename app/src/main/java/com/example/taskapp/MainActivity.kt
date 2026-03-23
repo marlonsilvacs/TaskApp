@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                         navController    = navController,
                         startDestination = Screen.Home.route
                     ) {
-                        // ── Tela 1: Home / Lista de tarefas ───────────────────
+                        // ──  Lista de tarefas
                         composable(Screen.Home.route) {
                             HomeScreen(
                                 onAddTask  = { navController.navigate(Screen.AddTask.route) },
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
 
-                        // ── Tela 2: Adicionar tarefa ──────────────────────────
+                        // ── Adicionar tarefa
                         composable(Screen.AddTask.route) {
                             AddTaskScreen(
                                 onBack = { navController.popBackStack() },
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
 
-                        // ── Tela 3: Detalhes da tarefa ────────────────────────
+                        // ── Detalhes da tarefa 
                         composable(
                             route = Screen.TaskDetail.route,
                             arguments = listOf(navArgument("taskId") { type = NavType.IntType })
