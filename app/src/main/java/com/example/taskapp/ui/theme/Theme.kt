@@ -11,7 +11,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-// ─── Colors ───────────────────────────────────────────────────────────────────
+// ─── cores
 
 val Indigo900  = Color(0xFF1A1040)
 val Indigo800  = Color(0xFF251659)
@@ -58,7 +58,7 @@ private val LightColors = lightColorScheme(
     outline        = Violet500
 )
 
-// ─── Typography ───────────────────────────────────────────────────────────────
+// ─── tipografia
 
 val AppTypography = androidx.compose.material3.Typography(
     displayLarge = TextStyle(
@@ -99,7 +99,7 @@ val AppTypography = androidx.compose.material3.Typography(
     )
 )
 
-// ─── Theme ────────────────────────────────────────────────────────────────────
+// ─── tema
 
 @Composable
 fun TaskAppTheme(
