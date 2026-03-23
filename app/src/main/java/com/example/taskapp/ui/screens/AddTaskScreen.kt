@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.taskapp.ui.theme.*
 
-// ─── Screen ───────────────────────────────────────────────────────────────────
+// ─── tela
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +42,7 @@ fun AddTaskScreen(
     val dates = listOf("Hoje", "Amanhã", "Esta semana", "Personalizado")
 
     Box(Modifier.fillMaxSize()) {
-        // Gradient background top
+        // Degrade de cima
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -51,7 +51,7 @@ fun AddTaskScreen(
         )
 
         Column(Modifier.fillMaxSize()) {
-            // ── Top bar ─────────────────────────────────────────────────────
+            // ── barrinha
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -77,7 +77,7 @@ fun AddTaskScreen(
                 Spacer(Modifier.size(48.dp))
             }
 
-            // ── Form card ────────────────────────────────────────────────────
+            // ── cartão de formulário
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -88,7 +88,7 @@ fun AddTaskScreen(
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
 
-                // Title
+                // título
                 SectionLabel("Título da tarefa")
                 OutlinedTextField(
                     value = title,
@@ -108,7 +108,7 @@ fun AddTaskScreen(
                     }
                 )
 
-                // Description
+                // descrição
                 SectionLabel("Descrição (opcional)")
                 OutlinedTextField(
                     value = description,
@@ -126,7 +126,7 @@ fun AddTaskScreen(
                     )
                 )
 
-                // Category
+                // Categoria
                 SectionLabel("Categoria")
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -149,7 +149,7 @@ fun AddTaskScreen(
                     }
                 }
 
-                // Priority
+                // Prioridades
                 SectionLabel("Prioridade")
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -165,7 +165,7 @@ fun AddTaskScreen(
                     }
                 }
 
-                // Date
+                // Data
                 SectionLabel("Data de vencimento")
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -188,7 +188,7 @@ fun AddTaskScreen(
                     }
                 }
 
-                // Time & Reminder row
+                // Tempo e lembrar
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     modifier = Modifier.fillMaxWidth()
@@ -209,7 +209,7 @@ fun AddTaskScreen(
 
                 Spacer(Modifier.height(8.dp))
 
-                // Save button
+                // botão de salvar
                 Button(
                     onClick = onSave,
                     modifier = Modifier
